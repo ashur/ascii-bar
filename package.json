@@ -1,0 +1,10 @@
+{
+  "name": "ascii-bar",
+  "version": "0.1.0",
+  "description": "Simple ASCII bar charts",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": "./bin/index.js"
+}
