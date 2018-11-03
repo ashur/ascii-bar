@@ -3,12 +3,27 @@
 const chart = require( '../index.js' );
 const countdown = chart.countdown;
 const percentage = chart.percentage;
+const pkg = require( '../package.json' );
+
+let usageString = `usage: ${pkg.name} [--segments <count>] [--countdown <remaining>|--percent <value>] [--no-label]`;
+if( process.argv.indexOf( '--help' ) > -1 )
+{
+	console.log( usageString );
+	process.exit();
+}
+
+if( process.argv.indexOf( '--version' ) > -1 )
+{
+	console.log( `${pkg.name} version ${pkg.version}` );
+	process.exit();
+}
 
 let config = {
 	segments: 25,
 	empty: "░",
 	filled: "▓"
 };
+
 
 let indexOfSegmentsFlag = process.argv.indexOf( '--segments' );
 let indexOfPercentFlag = process.argv.indexOf( '--percent' );
@@ -52,5 +67,6 @@ else if( indexOfCountdownFlag > -1 )
 	}
 }
 else {
-    console.log( 'wtf' );
+    console.log( usageString );
+	process.exit( 1 );
 }
